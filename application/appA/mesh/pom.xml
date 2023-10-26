@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>${hccp.app.id}</artifactId>
+        <groupId>org.noc.hccp.application</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <hccp.app.moduleGroupId>${hccp.app.groupId}.mesh</hccp.app.moduleGroupId>
+    </properties>
+
+    <groupId>${hccp.app.groupId}</groupId>
+
+    <artifactId>mesh</artifactId>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <!-- 此处定义具体的Service模块（一个或多个） -->
+        <module>meshA</module>
+        <module>meshB</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+
+        </dependencies>
+    </dependencyManagement>
+</project>

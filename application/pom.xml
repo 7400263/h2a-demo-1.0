@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>applications</artifactId>
+        <groupId>org.noc.hccp</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>application</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <!-- 每个具体项目作为一个子模块 -->
+        <module>appA</module> <!-- 此处的appA只是示例，具体项目中请根据实际情况设置，不要直接使用appA！！！ -->
+        <module>appB</module> <!-- 此处的appB只是示例，具体项目中请根据实际情况设置，不要直接使用appB！！！ -->
+    </modules>
+
+    <properties>
+        <hccp.platform.version>2.0.0.0</hccp.platform.version>
+        <hccp.mesh.version>1.0.0.0</hccp.mesh.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.noc.hccp</groupId>
+                <artifactId>platform.service</artifactId>
+                <version>${hccp.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.noc.hccp</groupId>
+                <artifactId>mesh.common</artifactId>
+                <version>${hccp.mesh.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>hccp-local-repo</id>
+            <url>file://${project.basedir}/hccpLibs/</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <!-- install platform jars to local maven repositories -->
+                    <execution>
+                        <id>install-jar-platform-service</id>
+                        <phase>initialize</phase>
+                        <configuration>
+                            <file>${project.basedir}/hccpLibs/platform.service.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>com.dlyd</groupId>
+                            <artifactId>hccp.platform.service</artifactId>
+                            <version>${hccp.platform.versione}</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>install-jar-management-etcd</id>
+                        <phase>initialize</phase>
+                        <configuration>
+                            <file>${project.basedir}/hccpLibs/management.etcd.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>com.dlyd</groupId>
+                            <artifactId>hccp.management.etcd</artifactId>
+                            <version>${hccp.platform.version}</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+
+
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
