@@ -3,26 +3,23 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>${hccp.app.id}</artifactId>
-        <groupId>org.noc.hccp.application</groupId>
+        <artifactId>application</artifactId>
+        <groupId>org.noc.hccp.apps</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <hccp.app.moduleGroupId>${hccp.app.groupId}.mesh</hccp.app.moduleGroupId>
     </properties>
 
-    <groupId>${hccp.app.groupId}</groupId>
-
-    <artifactId>mesh</artifactId>
+    <artifactId>common</artifactId>
 
     <packaging>pom</packaging>
 
     <modules>
         <!-- 此处定义具体的Service模块（一个或多个） -->
-        <module>meshA</module>
-        <module>meshB</module>
+        <module>commonA</module>
+        <module>commonB</module>
     </modules>
 
     <dependencyManagement>
