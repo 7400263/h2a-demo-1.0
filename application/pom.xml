@@ -3,8 +3,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>applications</artifactId>
-        <groupId>org.noc.hccp</groupId>
+        <artifactId>parent</artifactId>
+        <groupId>org.noc.hccp.apps</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -12,16 +12,18 @@
     <artifactId>application</artifactId>
     <packaging>pom</packaging>
 
-    <modules>
-        <!-- 每个具体项目作为一个子模块 -->
-        <module>appA</module> <!-- 此处的appA只是示例，具体项目中请根据实际情况设置，不要直接使用appA！！！ -->
-        <module>appB</module> <!-- 此处的appB只是示例，具体项目中请根据实际情况设置，不要直接使用appB！！！ -->
-    </modules>
-
     <properties>
         <hccp.platform.version>2.0.0.0</hccp.platform.version>
         <hccp.mesh.version>1.0.0.0</hccp.mesh.version>
+        <hccp.app.id>h2a.demo</hccp.app.id>
+        <hccp.app.version>1.0.0.202310261109</hccp.app.version>
     </properties>
+
+    <modules>
+        <module>common</module>
+        <module>mesh</module>
+        <module>service</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>
