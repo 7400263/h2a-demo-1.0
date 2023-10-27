@@ -14,8 +14,15 @@
 
     <properties>
         <hccp.localRepositoryPath>/home/dev/</hccp.localRepositoryPath>
-        <hccp.platform.version>2.0.0.0</hccp.platform.version>
-        <hccp.mesh.version>1.0.0.0</hccp.mesh.version>
+        
+        <hccp.libs.platform.version>2.0.0.0</hccp.libs.platform.version>
+        <hccp.libs.platform.service.groupId>com.dlyd</hccp.libs.platform.service.groupId>
+        <hccp.libs.platform.service.artifactId>hccp.platform.service</hccp.libs.platform.service.artifactId>
+
+        <hccp.libs.mesh.version>1.0.0.0</hccp.libs.mesh.version>
+        <hccp.libs.mesh.common.groupId>com.dlyd</hccp.libs.mesh.common.groupId>
+        <hccp.libs.mesh.common.artifactId>hccp.platform.service</hccp.libs.mesh.common.artifactId>
+
         <hccp.app.id>h2a.demo</hccp.app.id>
         <hccp.app.version>1.0.0</hccp.app.version>
         <hccp.app.dist.path>app_dist</hccp.app.dist.path>
@@ -26,6 +33,7 @@
         <module>mesh</module>
         <module>service</module>
         <module>test-dependencies</module>
+        <module>install-libs</module>
     </modules>
 
     <dependencyManagement>

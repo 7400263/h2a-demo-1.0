@@ -29,4 +29,12 @@
 
         </dependencies>
     </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <artifactId>install-jars</artifactId>
+            <groupId>org.noc.hccp.apps</groupId>
+            <version>1.0</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
 </project>

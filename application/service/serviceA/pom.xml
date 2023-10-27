@@ -28,6 +28,12 @@
         </dependency>
 
         <dependency>
+            <groupId>${hccp.libs.platform.service.groupId}</groupId>
+            <artifactId>${hccp.libs.platform.service.artifactId}</artifactId>
+            <version>${hccp.libs.platform.version}</version>
+        </dependency>
+        
+        <dependency>
             <artifactId>commonA</artifactId>
             <groupId>org.noc.hccp.apps</groupId>
             <version>1.0</version>
