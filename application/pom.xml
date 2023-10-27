@@ -16,7 +16,8 @@
         <hccp.platform.version>2.0.0.0</hccp.platform.version>
         <hccp.mesh.version>1.0.0.0</hccp.mesh.version>
         <hccp.app.id>h2a.demo</hccp.app.id>
-        <hccp.app.version>1.0.0.202310261109</hccp.app.version>
+        <hccp.app.version>1.0.0</hccp.app.version>
+        <hccp.app.dist.path>app_dist</hccp.app.dist.path>
     </properties>
 
     <modules>
@@ -47,5 +48,33 @@
             <url>file://${project.basedir}/hccpLibs/</url>
         </repository>
     </repositories>
+
+    <build>
+        <finalName>${hccp.app.id}-${hccp.app.version}-${hccp.module.dist.modulePrefix}-${project.artifactId}-${local.build.timestamp}</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${hccp.app.dist.path}</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven.plugin.version.jar}</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                    <outputDirectory>${hccp.module.dist.relativePath}/${hccp.app.dist.path}</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

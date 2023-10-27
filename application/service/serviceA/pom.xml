@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
+
     </properties>
 
     <groupId>org.noc.hccp.apps</groupId>
@@ -21,9 +22,5 @@
     <dependencies>
 
     </dependencies>
-
-    <build>
-        <finalName>${hccp.app.id}-${hccp.app.version}-service-${artifactId}</finalName>
-    </build>
 
 </project>

@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
+        <hccp.module.dist.modulePrefix>service</hccp.module.dist.modulePrefix>
+        <hccp.module.dist.relativePath>../..</hccp.module.dist.relativePath>
     </properties>
 
     <groupId>org.noc.hccp.apps</groupId>

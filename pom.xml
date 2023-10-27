@@ -21,6 +21,9 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
+        <maven.plugin.version.jar>3.3.0</maven.plugin.version.jar>
+        <maven.build.timestamp.format>yyyyMMdd-HHmmssSSS</maven.build.timestamp.format>
+
         <!-- properties for platform dependencies version-->
         <version.spring>5.3.24</version.spring>
         <version.slf4j>1.7.36</version.slf4j>
@@ -310,4 +313,41 @@
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>3.4.0</version>
+            <executions>
+              <execution>
+                <id>module-timestamp-property</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>timestamp-property</goal>
+                </goals>
+                <configuration>
+                  <name>module.build.timestamp</name>
+                  <pattern>${maven.build.timestamp.format}</pattern>
+                  <timeZone>Asia/Shanghai</timeZone>
+                  <!-- <timeSource>current</timeSource> -->
+                </configuration>
+              </execution>
+              <execution>
+                <id>local-timestamp-property</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>timestamp-property</goal>
+                </goals>
+                <configuration>
+                  <name>local.build.timestamp</name>
+                  <pattern>${maven.build.timestamp.format}</pattern>
+                  <timeZone>Asia/Shanghai</timeZone>
+                  <timeSource>build</timeSource>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
 </project>

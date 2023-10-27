@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
+        <hccp.module.dist.modulePrefix>common</hccp.module.dist.modulePrefix>
+        <hccp.module.dist.relativePath>../..</hccp.module.dist.relativePath>
     </properties>
 
     <artifactId>common</artifactId>
