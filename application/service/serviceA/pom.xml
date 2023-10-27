@@ -22,4 +22,8 @@
 
     </dependencies>
 
+    <build>
+        <finalName>${hccp.app.id}-${hccp.app.version}-service-${artifactId}</finalName>
+    </build>
+
 </project>
