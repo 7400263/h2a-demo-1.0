@@ -20,7 +20,18 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <dependency>
+            <artifactId>test-dependencies</artifactId>
+            <groupId>org.noc.hccp.apps</groupId>
+            <version>1.0</version>
+            <type>pom</type>
+        </dependency>
 
+        <dependency>
+            <artifactId>commonA</artifactId>
+            <groupId>org.noc.hccp.apps</groupId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 </project>

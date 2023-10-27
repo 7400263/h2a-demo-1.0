@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
 
     <properties>
+        <hccp.localRepositoryPath>/home/dev/</hccp.localRepositoryPath>
         <hccp.platform.version>2.0.0.0</hccp.platform.version>
         <hccp.mesh.version>1.0.0.0</hccp.mesh.version>
         <hccp.app.id>h2a.demo</hccp.app.id>
@@ -24,6 +25,7 @@
         <module>common</module>
         <module>mesh</module>
         <module>service</module>
+        <module>test-dependencies</module>
     </modules>
 
     <dependencyManagement>
@@ -41,13 +43,6 @@
 
         </dependencies>
     </dependencyManagement>
-
-    <repositories>
-        <repository>
-            <id>hccp-local-repo</id>
-            <url>file://${project.basedir}/hccpLibs/</url>
-        </repository>
-    </repositories>
 
     <build>
         <finalName>${hccp.app.id}-${hccp.app.version}-${hccp.module.dist.modulePrefix}-${project.artifactId}-${local.build.timestamp}</finalName>
@@ -73,6 +68,15 @@
                     </archive>
                     <outputDirectory>${hccp.module.dist.relativePath}/${hccp.app.dist.path}</outputDirectory>
                 </configuration>
+            </plugin>
+            
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.1.2</version>
             </plugin>
         </plugins>
     </build>

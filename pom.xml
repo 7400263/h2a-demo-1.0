@@ -43,6 +43,7 @@
         <version.druid>1.0.26</version.druid>
         <version.jackson>2.13.4</version.jackson>
         <version.mysql>5.1.46</version.mysql>
+        <version.junit-5>5.10.0</version.junit-5>
     </properties>
 
     <dependencyManagement>
@@ -237,11 +238,6 @@
                 <version>${version.disruptor}</version>
             </dependency>
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.11</version>
-            </dependency>
-            <dependency>
                 <groupId>com.google.protobuf</groupId>
                 <artifactId>protobuf-java</artifactId>
                 <version>${version.protobuf}</version>
@@ -303,6 +299,13 @@
                 <artifactId>javax.jms-api</artifactId>
                 <version>2.0.1</version>
             </dependency>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${version.junit-5}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!--
             <dependency>
                 <groupId>com.github.ben-manes.caffeine</groupId>
@@ -315,39 +318,40 @@
 
     <build>
         <plugins>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>build-helper-maven-plugin</artifactId>
-            <version>3.4.0</version>
-            <executions>
-              <execution>
-                <id>module-timestamp-property</id>
-                <phase>validate</phase>
-                <goals>
-                  <goal>timestamp-property</goal>
-                </goals>
-                <configuration>
-                  <name>module.build.timestamp</name>
-                  <pattern>${maven.build.timestamp.format}</pattern>
-                  <timeZone>Asia/Shanghai</timeZone>
-                  <!-- <timeSource>current</timeSource> -->
-                </configuration>
-              </execution>
-              <execution>
-                <id>local-timestamp-property</id>
-                <phase>validate</phase>
-                <goals>
-                  <goal>timestamp-property</goal>
-                </goals>
-                <configuration>
-                  <name>local.build.timestamp</name>
-                  <pattern>${maven.build.timestamp.format}</pattern>
-                  <timeZone>Asia/Shanghai</timeZone>
-                  <timeSource>build</timeSource>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.4.0</version>
+                <executions>
+                    <execution>
+                        <id>module-timestamp-property</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>timestamp-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>module.build.timestamp</name>
+                            <pattern>${maven.build.timestamp.format}</pattern>
+                            <timeZone>Asia/Shanghai</timeZone>
+                            <!-- <timeSource>current</timeSource> -->
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>local-timestamp-property</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>timestamp-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>local.build.timestamp</name>
+                            <pattern>${maven.build.timestamp.format}</pattern>
+                            <timeZone>Asia/Shanghai</timeZone>
+                            <timeSource>build</timeSource>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
-      </build>
+    </build>
 </project>
